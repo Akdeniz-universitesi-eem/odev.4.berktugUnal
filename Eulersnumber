@@ -1,0 +1,18 @@
+#odev.4.berktugUnal
+
+public class Main {
+    public static void main(String[] args) {
+        int n = 200; // Değeri hassaslaştırmak için for döngüsünde yapılan işlem sayısını arttırabiliriz
+        double factorial=1.0;//faktoriyel başlangıç saoso
+        double upperdown=1.0;//faktoriyelleri ters çevirip birbirine ekleyeceğiz
+        for (int i =1;i<=n;i++){
+            factorial =factorial * i;//n e kadar olan sayıların faktoriyelini alıyoruz
+            upperdown +=1.0 / factorial;//faktoriyelleri ters çevirip topluyoruz
+        }
+
+
+        double enumber = upperdown;// sonucu enumber değişkenine aktarıyoruz
+        System.out.println("e sayısı: " + upperdown);
+    }
+}
+
