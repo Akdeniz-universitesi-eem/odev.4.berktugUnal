@@ -1,0 +1,39 @@
+#odev.4.berktugUnal
+import javax.swing.JOptionPane;
+import javax.swing.JEditorPane; //Şartları yazabilmek için
+
+public class main {
+    public static void main(String[] args) {
+        JEditorPane editorPane = new JEditorPane();
+        editorPane.setContentType("text/html");
+        editorPane.setText("Şartlar:<br>1. Şifre en az 8 karakter olmalı.<br>2. Şifre en fazla 95 karakter olmalı.<br>3. Şifre en az 1 rakam içermeli.<br>4. Şifre en az 1 harf içermeli.<br>5 Şifre özel karakterleri içermeli '@','$','#','^^','*' ");
+        String password = null;
+        while (true) {
+            password = JOptionPane.showInputDialog("Yeni şifre ");
+
+            if (password != null && !password.isEmpty()) {
+                if (password.length() >= 8 && password.length() <= 95) { //Şifre en az 8 en fazla 95 karakter içermeli
+                    if (password.matches(".\\d+.")) { //en az 1 rakam kullanılmalı
+                        if (password.matches(".[a-zA-Z]+.")) { //en az 1 harf kullanılmalı
+                            if (!password.contains("@") && !password.contains("$") && !password.contains("#") && !password.contains("^^") && !password.contains("*")) {
+                                JOptionPane.showMessageDialog(null, "Şifre belirlendi"); //Kullanıcı adımları doğru takip ederse ekranda bu mesaj görünecektir.
+                                break; //Şifre geçerli olunca döngüden çık
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Şifreniz '@','$','#','^^','*' karakterlerini içermemelidir!", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Şifreniz en az bir harf içermelidir!", "Error", JOptionPane.ERROR_MESSAGE);//Kullanıcı herhangi bir harf kullanmazsa ekranda bu mesaj görünecektir.
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Şifreniz en az bir rakam içermelidir!", "Error", JOptionPane.ERROR_MESSAGE);// Kullanıcı herhangi bir numara kullanmazsa ekranda bu mesaj görünecektir.
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Şifreniz en az 8, en fazla 95 karakter olmalıdır!", "Error", JOptionPane.ERROR_MESSAGE);//Kullanıcı en az 8 karakter kullanmazsa ekranda bu mesaj görünecektir.
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Geçerli bir şifre girmelisiniz!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+}
+
