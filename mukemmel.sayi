@@ -1,0 +1,30 @@
+#odev.4.berktugUnal
+
+public class Main {
+    public static void main(String[] args) {
+    int num1=6;
+        int lowerLimit = 1000;//4 basamaklı sayının alt limiti
+        int upperLimit = 9999;//4 basamaklı sayının üst limiti
+    if (isPerfect(num1)) {//girilen sayının mükemmel sayı olup olmadığını ekrana yazdırıyoruz
+            System.out.println(num1 + " mükemmel bir sayıdır.");
+        } else {
+            System.out.println(num1 + " mükemmel bir sayı değildir.");
+        }
+        for (int num = lowerLimit; num <= upperLimit; num++) {//bu blokta num değişkeninini 1000 den başlatarak 9999 a kadar olan sayıları isPerfect metotunda deneyip istenilen sayıyı bulacağız
+            if (isPerfect(num)) {
+                System.out.println("4 basamaklı tek mükemmel sayı: " + num);
+            }
+        }
+
+
+    }
+    public static boolean isPerfect(int num1){
+    int sum =0;
+    for(int i =1; i<num1 ; i++){// verilen sayıya kadar olan ve sayıyı tam bölen sayıları sum değişkeninde toplayarak yeni sum değişkenini elde ediyoruz
+        if(num1 % i ==0){
+            sum = sum + i;
+        }
+    }
+    return sum == num1; // Eğer bölenlerin toplamı sayıya eşitse true, değilse false döndürür
+    }
+}
