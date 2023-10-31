@@ -1,0 +1,33 @@
+# odev.4.berktugUnal
+
+public class Main {
+    public static void main(String[] args) {
+int num1=220;
+int num2=284;
+areFriends(num1,num2);  //metotumuzu çağırıyoruz
+
+    }
+
+    public static void areFriends(int num1, int num2) {
+        /*areFriends metodu static olarak tanımlandığından ve main metodu da static olduğundan
+         doğrudan areFriends metodu main metodu içinden çağrılabilir ve çalıştırılabilir.*/
+        int sum1 = 0;//for da kullanmak için toplam değişkeni belirledik
+        int sum2 = 0;//for da kullanmak için toplam değişkeni belirledik
+        for (int i = 1; i < num1; i++) {
+            if (num1 % i == 0) {   //bu if bloğu ile 1. sayımızı tam bölen sayıları sum1 değişkenine toplayarak aktarırız
+                sum1 = sum1 + i;
+            }
+        }
+            for (int i = 1; i < num2; i++) {   //bu if bloğu ile 2. sayımızı tam bölen sayıları sum2 değişkenine toplayarak aktarırız
+                if (num2 % i == 0) {
+                    sum2 = sum2 + i;
+                }
+            }
+            if (num1==sum2 && num2==sum1){  //istenilen koşullar
+               System.out.println("Arkadaş Sayilardir");
+            }else{
+                System.out.println("Arkadaş Sayi Degillerdir");
+            }
+
+        }
+    }
