@@ -1,0 +1,18 @@
+#odev.4.berktugUnal
+
+public class Main {
+    public static void main(String[] args) {
+int num1 =12;//sayimizi seciyoruz
+int result =sumFactors(num1);//metot int deger döndürdügünden result adında int bir deger olusturuyoruz
+System.out.println(num1+ " Sayisinin kendisi haric carpanlari toplami : "+result);
+    }
+    public static int sumFactors(int num){
+        int sum =1;//1 her sayinin çarpanıdır
+        for (int i = 2;i<num;i++){//2 den itibaren sayıya kadar olan tam sayı bölenleri kontrol ediyoruz
+            if (num % i == 0){
+                sum = sum +i;//bulunan tam sayı bölenleri topluyoruz
+            }
+        }
+        return sum;
+    }
+}
